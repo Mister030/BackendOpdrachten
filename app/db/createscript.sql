@@ -153,6 +153,42 @@ VALUES
 
 
 
+-- Step: 06a
+-- ************************************************************
+-- Doel : Maak een nieuwe tabel aan met de naam Zangeressen
+-- ************************************************************
+--
+-- Versie   Datum       Auteur            Omschrijving
+-- 01       10-02-2026  Arjan de Ruijter  Zangeressen
+--
+-- ************************************************************
+
+CREATE TABLE Zangeressen
+(
+    Id               SMALLINT        UNSIGNED    NOT NULL    AUTO_INCREMENT,
+    Naam             VARCHAR(50)                 NOT NULL,
+    Nationaliteit    VARCHAR(25)                 NOT NULL,
+    Vermogen         DECIMAL(10,2)               NOT NULL,
+    Geboortedatum    DATE                        NOT NULL,
+    AantalAlbums     SMALLINT                    NOT NULL,
+    IsActief         BIT                         NOT NULL    DEFAULT 1,
+    Opmerking        VARCHAR(255)                            DEFAULT NULL,
+    DatumAangemaakt  DATETIME(6)                 NOT NULL    DEFAULT NOW(6),
+    DatumGewijzigd   DATETIME(6)                 NOT NULL    DEFAULT NOW(6),
+    CONSTRAINT PK_Zangeressen_Id PRIMARY KEY (Id)
+) ENGINE=InnoDB;
+
+INSERT INTO Zangeressen
+(
+    Naam, Nationaliteit, Vermogen, Geboortedatum, AantalAlbums
+)
+VALUES
+('Rihanna',        'Barbadaans',   1400.00, '1988-02-20', 8),
+('Taylor Swift',   'Amerikaans',   1100.00, '1989-12-13', 11),
+('Beyoncé',        'Amerikaans',    540.00, '1981-09-04', 7),
+('Madonna',        'Amerikaans',    850.00, '1958-08-16', 14),
+('Adele',          'Brits',         220.00, '1988-05-05', 4);
+
 -- Checks (controle)
 SELECT * FROM Smartphones;
 SELECT * FROM Sneakers;
